@@ -24,4 +24,4 @@ requires:
 resources:
   bugtracker: http://github.com/renatocron/Business--BR--RG/issues
   repository: http://renatocron@github.com/renatocron/Business--BR--RG.git
-version: 0.001
+version: 0.002

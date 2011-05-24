@@ -1,6 +1,19 @@
 Revision History for Business-BR-RG
 ===================================
 
+0.002
+-----
+
+commit 3bdcd0073a879cc5d72cecbc7c2f4986e34477fe
+Author: Renato CRON <renato.cron@gmail.com>
+
+    do not add .build to manifest!
+
+commit 63bbc1f1d62af2ddbc6aeb2ef50b62ccd759ebb8
+Author: Renato CRON <renato.cron@gmail.com>
+
+    changes on pod
+
 ===================================
 End of changes in the last 365 days
 ===================================
