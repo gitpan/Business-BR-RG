@@ -1,33 +1,8 @@
 NAME
-    Business::BR::RG - Perl module to test for correct RG numbers
+    Business::BR::RG
 
-SYNOPSIS
-    basic use
-
-            use Business::BR::RG;
-
-            print "ok " if test_rg('390.533.447-05'); # prints 'ok '
-            print "bad " unless test_rg('231.002.999-00'); # prints 'bad '
-
-    using all methods
-
-            use Business::BR::RG qw /canon_rg test_rg random_rg format_rg parse_rg/;
-
-            test_rg('48.391.390-x') # 1
-            canon_rg('11.456.789-x') # '11456789X'
-
-            test_rg('48.190.390-X') # 0
-
-            test_rg('48.190') # undef
-
-            format_rg('48.19.0.3.9.0.X') # '48.190.390-X'
-
-            my ($base, $dv) = parse_rg('48.19.0.3.9.0.X');
-            print $base # '48190390'
-            print $dv   # 'X'
-
-            my $hashref = parse_rg('48.19.0.3.9.0.X');
-            print $hashref->{base} . '-' . $hashref->{dv}; # 48190390-X
+VERSION
+    version 0.0021
 
 DESCRIPTION
     The RG number is an identification number of Brazilian citizens emitted
@@ -132,6 +107,36 @@ DESCRIPTION
     "test_rg" is exported by default. "canon_rg", "format_rg", "parse_rg"
     and "random_rg" can be exported on demand.
 
+NAME
+    Business::BR::RG - Perl module to test for correct RG numbers
+
+    ABSTRACT:
+
+            use Business::BR::RG;
+
+            print "ok " if test_rg('390.533.447-05'); # prints 'ok '
+            print "bad " unless test_rg('231.002.999-00'); # prints 'bad '
+
+    using all methods
+
+            use Business::BR::RG qw /canon_rg test_rg random_rg format_rg parse_rg/;
+
+            test_rg('48.391.390-x') # 1
+            canon_rg('11.456.789-x') # '11456789X'
+
+            test_rg('48.190.390-X') # 0
+
+            test_rg('48.190') # undef
+
+            format_rg('48.19.0.3.9.0.X') # '48.190.390-X'
+
+            my ($base, $dv) = parse_rg('48.19.0.3.9.0.X');
+            print $base # '48190390'
+            print $dv   # 'X'
+
+            my $hashref = parse_rg('48.19.0.3.9.0.X');
+            print $hashref->{base} . '-' . $hashref->{dv}; # 48190390-X
+
 THE CHECK EQUATIONS
     A correct RG number has one check digit which are computed from the base
     8 first digits. Consider the RG number written as 9 digits
@@ -191,4 +196,13 @@ COPYRIGHT AND LICENSE
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself, either Perl version 5.10.1 or, at
     your option, any later version of Perl 5 you may have available.
+
+AUTHOR
+    Renato CRON <rentocron@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Renato CRON.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 

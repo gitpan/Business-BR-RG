@@ -57,9 +57,7 @@ sub canon_rg {
         }
 
     }
-    else {
-        return undef;
-    }
+    return undef;
 }
 
 # there is a subtle difference here between the return for
@@ -139,38 +137,15 @@ sub random_rg {
 
 __END__
 
+=pod
+
 =head1 NAME
 
-Business::BR::RG - Perl module to test for correct RG numbers
+Business::BR::RG
 
-=head1 SYNOPSIS
+=head1 VERSION
 
-basic use
-
-	use Business::BR::RG;
-
-	print "ok " if test_rg('390.533.447-05'); # prints 'ok '
-	print "bad " unless test_rg('231.002.999-00'); # prints 'bad '
-
-using all methods
-
-	use Business::BR::RG qw /canon_rg test_rg random_rg format_rg parse_rg/;
-
-	test_rg('48.391.390-x') # 1
-	canon_rg('11.456.789-x') # '11456789X'
-
-	test_rg('48.190.390-X') # 0
-
-	test_rg('48.190') # undef
-
-	format_rg('48.19.0.3.9.0.X') # '48.190.390-X'
-
-	my ($base, $dv) = parse_rg('48.19.0.3.9.0.X');
-	print $base # '48190390'
-	print $dv   # 'X'
-
-	my $hashref = parse_rg('48.19.0.3.9.0.X');
-	print $hashref->{base} . '-' . $hashref->{dv}; # 48190390-X
+version 0.0021
 
 =head1 DESCRIPTION
 
@@ -298,6 +273,36 @@ check equations.
 C<test_rg> is exported by default. C<canon_rg>, C<format_rg>,
 C<parse_rg> and C<random_rg> can be exported on demand.
 
+=head1 NAME
+
+Business::BR::RG - Perl module to test for correct RG numbers
+
+ABSTRACT:
+
+	use Business::BR::RG;
+
+	print "ok " if test_rg('390.533.447-05'); # prints 'ok '
+	print "bad " unless test_rg('231.002.999-00'); # prints 'bad '
+
+using all methods
+
+	use Business::BR::RG qw /canon_rg test_rg random_rg format_rg parse_rg/;
+
+	test_rg('48.391.390-x') # 1
+	canon_rg('11.456.789-x') # '11456789X'
+
+	test_rg('48.190.390-X') # 0
+
+	test_rg('48.190') # undef
+
+	format_rg('48.19.0.3.9.0.X') # '48.190.390-X'
+
+	my ($base, $dv) = parse_rg('48.19.0.3.9.0.X');
+	print $base # '48190390'
+	print $dv   # 'X'
+
+	my $hashref = parse_rg('48.19.0.3.9.0.X');
+	print $hashref->{base} . '-' . $hashref->{dv}; # 48190390-X
 
 =head1 THE CHECK EQUATIONS
 
@@ -312,8 +317,6 @@ the check equations:
 
 c[1]*2 + c[2]*3 + c[3]*4 + c[4]*5 + c[5]*6 + c[6]*7 + c[7]*8 + c[8]*9 +
 dv[9] * 100 = 0 (mod 11)
-
-
 
 =head1 BUGS
 
@@ -368,5 +371,17 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.1 or,
 at your option, any later version of Perl 5 you may have available.
 
+=cut
+
+=head1 AUTHOR
+
+Renato CRON <rentocron@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Renato CRON.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut

@@ -100,7 +100,6 @@ sub read_string {
         return $self->_error("Stream has a non UTF-8 BOM");
     }
     else {
-
         # Strip UTF-8 bom if found, we'll just ignore it
         $string =~ s/^\357\273\277//;
     }
@@ -283,7 +282,6 @@ sub _read_array {
                     push @$array, undef;
                 }
                 else {
-
                     # Naked indenter
                     push @$array, [];
                     $self->_read_array( $array->[-1], [ @$indent, $indent2 ],
@@ -365,7 +363,6 @@ sub _read_hash {
                 $lines );
         }
         else {
-
             # An indent
             shift @$lines;
             unless (@$lines) {

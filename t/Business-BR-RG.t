@@ -21,3 +21,4 @@ is_deeply(
     { base => '48190390', dv => 'X' },
     'parsing RG works (scalar context)'
 );
+
